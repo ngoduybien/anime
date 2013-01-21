@@ -1,0 +1,11 @@
+
+<?php
+if (isset($this->loginFail)) {
+    echo '<div class="error">' . $this->loginFail . '</div>';
+}
+if (isset($this->message)) {
+    echo '<div class="notice">' . implode($this->message) . '</div>';
+}
+echo $this->form; ?>
+<a href='<?=$this->escape($this->register);?>'>Click here to register if you have not already.</a>
+

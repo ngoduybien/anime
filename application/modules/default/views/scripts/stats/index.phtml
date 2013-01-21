@@ -1,0 +1,58 @@
+<?php         
+$this->title = "Statistics";
+$this->headTitle($this->title);
+?>
+
+<h5>Anime statistics</h5>
+
+<?php
+echo 'Total amount of animes ' . $this->anime;?>
+<br>
+<?php 
+echo 'Most Viewed Anime ';
+$anime = $this->topTen['0'];
+?>
+<a
+	href="<?php
+echo $this->url(array('controller' => 'anime', 'action' => 'index', 
+'id' => $anime->id), null, true)?>">
+<img
+	src="<?php
+echo $this->baseUrl() . "/public/pictures/" . $anime->picture;
+?>"
+	alt="<?php
+echo $this->escape($anime->title);
+?>" width="5%" height="5%">
+<?php
+echo $anime->title;
+?></a><br>
+
+<?php 
+echo 'Least Viewed Anime ';
+$anime = $this->leastViewed;
+?>
+<a
+	href="<?php
+echo $this->url(array('controller' => 'anime', 'action' => 'index', 
+'id' => $anime->id), null, true)?>">
+<img
+	src="<?php
+echo $this->baseUrl() . "/public/pictures/" . $anime->picture;
+?>"
+	alt="<?php
+echo $this->escape($anime->title);
+?>" width="5%" height="5%">
+<?php
+echo $anime->title;
+?></a><br>
+
+
+<?php
+echo 'Total amount of comments: ' . $this->comments;?>
+<br>
+<?php 
+echo 'Total amount of producers: ' . $this->producer; ?>
+<br> <?php 
+echo 'Total amount of users: ' . $this->user . ' that have '. $this->userlist . ' on their anime list.'?>
+
+

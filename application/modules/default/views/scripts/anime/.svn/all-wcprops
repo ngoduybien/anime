@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/76/trunk/Anime/application/modules/default/views/scripts/anime
+END
+index.phtml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/75/trunk/Anime/application/modules/default/views/scripts/anime/index.phtml
+END
+recommend.phtml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/46/trunk/Anime/application/modules/default/views/scripts/anime/recommend.phtml
+END
+list.phtml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/59/trunk/Anime/application/modules/default/views/scripts/anime/list.phtml
+END
+search.phtml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/76/trunk/Anime/application/modules/default/views/scripts/anime/search.phtml
+END

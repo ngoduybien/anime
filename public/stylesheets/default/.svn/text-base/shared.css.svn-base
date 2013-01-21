@@ -1,0 +1,707 @@
+/* @group Generic
+============================================================ */
+
+
+
+/* @group Text Colors
+------------------------------------------------------------ */
+
+
+/* Dark Grey */
+
+body, textarea, input,
+button, a.button, 
+.paginator a,
+#comments .comment a.reply-link:hover,
+#comments .comment .content a.meta-data:hover,
+.post-data a,
+#sidebar .box .nav ul li a {
+	color: #666;
+}
+
+
+/* Grey */
+
+form fieldset legend,
+#comments .comment a.reply-link,
+#comments .comment .content a.meta-data,
+#comments .comment .content cite a:hover,
+#bottombar .breadcrumbs a {
+  color: #888;
+}
+
+
+/* Black */
+
+table.data th,
+button:hover, a.button:hover,
+input[type=submit]:hover, input[type=reset]:hover,
+.paginator a:hover, .paginator .active,
+#comments .comment .content cite,
+#comments .comment .content cite a,
+.post-data a:hover,
+#sidebar .box .nav ul li a:hover {
+  color: black;
+}
+
+/* @end */
+
+
+
+/* @group Backgrounds
+------------------------------------------------------------ */
+
+
+/* White */
+
+form input[type=text],
+form input[type=password],
+form textarea,
+pre, code.block,
+.img-frame, .frame,
+#comments .comment {
+  background-color: white;
+}
+
+
+/* Metal Gradient / Light Grey */
+
+table.data thead tr th,
+button, a.button, 
+input[type=submit], input[type=reset],
+.paginator a, .paginator span,
+.post-data, .toggler {
+  background: #e7e7e7 url(../../images/layout/default/shared/metal-gradient.jpg) repeat-x;
+}
+
+.paginator a:hover,
+.paginator .active,
+.toggler.active,
+body.minimal .toggler.active { background: #e7e7e7; }
+
+
+/* Lighter Grey */
+
+.content-frame,
+#sidebar .box .content,
+#sidebar .box .nav,
+#bottombar {
+  background-color: #f0f0f0;
+}
+
+/* @end */
+
+
+
+/* @group Borders
+------------------------------------------------------------ */
+
+
+/* Grey */
+
+form fieldset,
+form input[type=text],
+form input[type=password],
+form textarea,
+.img-frame, .content-frame, .frame,
+#comments .comment {
+  border: 1px solid #cfcfcf;
+}
+
+
+/* Dark Grey */
+
+.content-frame,
+button, a.button, 
+input[type=submit], input[type=reset],
+.paginator a, .paginator span,
+.post-data, .toggler,
+#sidebar .box .content,
+#sidebar .box .nav {
+  border: 1px solid #c2c2c2;
+}
+
+.paginator .first { border-left: 1px solid #c2c2c2; }
+
+.post-box .post-data { *border-top: 1px solid #c2c2c2; /* IE fix */ }
+
+.post-data span.date,
+.post-data span.categories,
+.post-data span.comments { border-right: 1px solid #c2c2c2; }
+
+#sidebar .box .nav ul li a { border-bottom: 1px solid #c2c2c2; }
+
+/* @end */
+
+
+
+/* @group Text Shadow
+------------------------------------------------------------ */
+
+
+/* White (Letterpress) */
+
+table.data thead tr th,
+.img-frame, .content-frame, .frame,
+button, a.button, 
+input[type=submit], input[type=reset],
+.paginator a, .paginator span,
+.post-data, .toggler,
+#sidebar .box .content,
+#sidebar .box .nav,
+#bottombar .breadcrumbs a {
+  text-shadow: 0 1px white;
+}
+
+/* @end */
+
+/* @end */
+
+
+
+
+
+
+
+
+
+
+/* @group Content Elements
+============================================================ */
+
+
+
+/* @group Headings
+------------------------------------------------------------ */
+
+h1, h2, h3, h4, h5, h6,
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: #333;
+}
+
+
+/* Underline Headings */
+
+.underline-headings h3, .underline-headings h4, 
+.underline-headings h5, .underline-headings h6,
+h3.underline, h4.underline, h5.underline, h6.underline {
+  background: url(../../images/layout/default/shared/line.gif) left bottom repeat-x;
+}
+
+/* @end */
+
+
+
+/* @group Images
+------------------------------------------------------------ */
+
+.rounded {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, .6);
+  -moz-box-shadow: inset 0 0 2px rgba(0, 0, 0, .6);
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, .6);
+}
+
+/* Chrome Fix for 'bleeding' inline box-shadows on rounded corners */
+body.bd-chrome .rounded { -webkit-box-shadow: none !important; }
+
+/* @end */
+
+
+
+/* @group Lists
+------------------------------------------------------------ */
+
+ul.check li, ul.cross li, ul.mixed li {
+  background-image: url(../../images/layout/default/shared/list_icons.png);
+}
+
+/* @end */
+
+
+
+/* @group Tables
+------------------------------------------------------------ */
+
+thead tr th,
+table.data thead tr th { border-bottom: 2px solid #999; }
+
+tfoot tr th,
+tfoot tr td { border-top: 2px solid #999; }
+
+
+/* Data Table */
+
+table.data {
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+table.data th,
+table.data td {
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+}
+
+table.data tr.alt th, table.data tr.alt td,
+table.data tr th.alt, table.data tr td.alt { 
+  background-color: #e7e7e7; 
+}
+
+/* @end */
+
+
+
+/* @group Forms
+------------------------------------------------------------ */
+
+form input[type=text]:focus,
+form input[type=password]:focus,
+form textarea:focus {
+  border-color: #aaa;
+}
+
+
+/* jQuery Validation & AJAX Submit */
+
+form input[type=text].invalid,
+form input[type=password].invalid,
+form textarea.invalid,
+form input[type=text].invalid:focus,
+form input[type=password].invalid:focus,
+form textarea.invalid:focus {
+  border-color: #FF9999;
+}
+
+/* @end */
+
+
+
+/* @group Code / Pre */
+
+pre, code.block { border: 1px solid #ddd; }
+
+code.block {
+  background-image: url(../../images/layout/default/shared/code-block_bg.gif);
+}
+
+/* @end */
+
+
+
+/* @group Dropcaps
+------------------------------------------------------------ */
+
+.dropcap-square,
+.dropcap-circle { color: white; }
+
+.dropcap-square { background: #666; }
+
+.dropcap-circle {
+  background-image: url(../../images/layout/default/shared/dropcap_circle.png);
+}
+
+/* @end */
+
+
+
+/* @group Highlights
+------------------------------------------------------------ */
+
+.highlight   { background: #fff34d; color: black; }
+.highlight-2 { background: black;   color: white; }
+
+.highlight { 
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* @end */
+
+
+
+/* @group Blockquotes
+------------------------------------------------------------ */
+
+blockquote {
+  background: url(../../images/layout/default/shared/blockquote_bg.png) no-repeat;
+}
+
+/* @end */
+
+
+
+/* @group Notifications
+------------------------------------------------------------ */
+
+.success, .notice, .warning, .error { border: 1px solid; }
+
+.success { background: #DEE3AB; border-color: #A3C159; color: #5E6F33; }
+.notice  { background: #BFE4F9; border-color: #68A2CF; color: #2E6093; }
+.warning { background: #FDEBAE; border-color: #E6C555; color: #9E660D; }
+.error   { background: #FFCCCC; border-color: #FF9999; color: #C31B00; }
+
+/* @end */
+
+/* @end */
+
+
+
+
+
+
+
+
+
+/* @group Custom Elements
+============================================================ */
+
+
+
+/* @group Dividers / Spacers
+------------------------------------------------------------ */
+
+/* Dividers */
+
+.hr, .big-hr {
+  background: url(../../images/layout/default/shared/line.gif) repeat-x;
+  height: 2px;
+}
+
+/* @end */
+
+
+
+/* @group Frames / Image Captions
+------------------------------------------------------------ */
+
+.content-frame {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, .2);
+  -moz-box-shadow: inset 0 0 2px rgba(0, 0, 0, .2);
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, .2);
+}
+
+/* @end */
+
+
+
+/* @group Buttons / Paginator / Toggler
+------------------------------------------------------------ */
+
+button, a.button, 
+input[type=submit], input[type=reset],
+.paginator a, .paginator span {
+  box-shadow: 0px 1px 1px #ccc;
+  -moz-box-shadow: 0px 1px 1px #ccc;
+  -webkit-box-shadow: 0px 1px 1px #ccc;
+}
+
+button:hover, a.button:hover,
+input[type=submit]:hover, input[type=reset]:hover {
+  border-color: #999;
+  box-shadow: 0px 1px 1px #aaa;
+  -moz-box-shadow: 0px 1px 1px #aaa;
+  -webkit-box-shadow: 0px 1px 1px #aaa;
+}
+
+button:active, a.button:active,
+input[type=submit]:active, input[type=reset]:active,
+.paginator a:active, .paginator .active, .toggler.active {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, .6);
+  -moz-box-shadow: inset 0 0 2px rgba(0, 0, 0, .6);
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, .6);
+}
+
+/* @end */
+
+
+
+/* @group Paginator
+------------------------------------------------------------ */
+
+.paginator a,
+.paginator span { border-left: none; }
+
+/* @end */
+
+
+
+/* @group Toggler
+------------------------------------------------------------ */
+
+.toggler strong {
+  background-image: url(../../images/layout/default/shared/toggler_icons.gif);
+}
+
+/* @end */
+
+
+
+/* @group Lightbox
+------------------------------------------------------------ */
+
+.lightbox-image {
+  background-image: url(../../images/layout/default/shared/magnifier.png);
+}
+
+/* @end */
+
+
+
+/* @group Rounded Box
+------------------------------------------------------------ */
+
+.rounded-box .rounded-corners-lt,
+.rounded-box .rounded-corners-rt,
+.rounded-box .rounded-corners-lb,
+.rounded-box .rounded-corners-rb {
+  background-image: url(../../images/layout/default/shared/post-box_round-corners.png);
+}
+
+/* @end */
+
+
+
+/* @group Post Box / Post Data
+------------------------------------------------------------ */
+
+.post-data {
+  box-shadow: 0px 1px 1px #ccc;
+  -moz-box-shadow: 0px 1px 1px #ccc;
+  -webkit-box-shadow: 0px 1px 1px #ccc;
+}
+
+.post-box .post-data { border-top: none; }
+
+.post-data span.date,
+.post-data span.categories,
+.post-data span.comments {
+  background-image: url(../../images/layout/default/shared/post-data_icons.png);
+  border-left: 1px solid white;
+}
+
+.post-data span.date     { border-left: none; }
+.post-data span.comments { border-right: none; }
+
+/* @end */
+
+
+
+/* @group Slider
+------------------------------------------------------------ */
+
+.slider .nivo-controlNav a {
+	background-image: url(../../images/layout/default/shared/slider_bullets.png) !important;
+}
+
+/* @end */
+
+
+
+/* @group Preview Showcase
+------------------------------------------------------------ */
+
+#preview {
+  background: url(../../images/layout/default/shared/preview_showcase_shadow.png) center 365px no-repeat;
+}
+
+#preview #showcase .rounded-corners-bottom {
+  background-image: url(../../images/layout/default/shared/preview_round-corners_bottom.png);
+}
+
+/* @end */
+
+/* @end */
+
+
+
+
+
+
+
+
+
+/* @group Layout Options
+============================================================ */
+
+
+
+/* @group Minimal-Layout
+------------------------------------------------------------ */
+
+body.minimal * { text-shadow: none !important; }
+
+body.minimal #topbar,
+body.minimal #header,
+body.minimal #main,
+body.minimal #footer,
+body.minimal button,
+body.minimal a.button, 
+body.minimal input[type=submit],
+body.minimal input[type=reset],
+body.minimal .paginator a,
+body.minimal .paginator span,
+body.minimal .toggler,
+body.minimal .post-data,
+body.minimal table.data thead tr th { 
+  background-image: none;
+}
+
+body.minimal button,
+body.minimal a.button, 
+body.minimal input[type=submit],
+body.minimal input[type=reset],
+body.minimal .paginator a,
+body.minimal .paginator span,
+body.minimal .toggler.active,
+body.minimal .post-data,
+body.minimal .rounded,
+body.minimal .content-frame,
+body.minimal #sidebar .box .content,
+body.minimal #sidebar .box .nav {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+body.minimal .underline-headings h3,
+body.minimal .underline-headings h4, 
+body.minimal .underline-headings h5,
+body.minimal .underline-headings h6,
+body.minimal h3.underline,
+body.minimal h4.underline,
+body.minimal h5.underline,
+body.minimal h6.underline,
+body.minimal .hr,
+body.minimal .big-hr {
+  background-image: url(../../images/layout/default/shared/minimal/line.gif);
+}
+
+body.minimal button:active,
+body.minimal a.button:active,
+body.minimal input[type=submit]:active,
+body.minimal input[type=reset]:active,
+body.minimal .paginator a:active,
+body.minimal .paginator .active,
+body.minimal .toggler { background: white; }
+
+body.minimal .toggler strong {
+  background-image: url(../../images/layout/default/shared/minimal/toggler_icons.gif);
+}
+
+body.minimal .post-data { border-top: 1px solid #bbb; }
+
+body.minimal .post-data span.date,
+body.minimal .post-data span.categories,
+body.minimal .post-data span.comments {
+  background-image: url(../../images/layout/default/shared/minimal/post-data_icons.png);
+  border-left: none;
+}
+
+body.minimal #sidebar .box .nav ul li a {
+  background-image: url(../../images/layout/default/shared/minimal/sidebar_nav_list-arrow.gif);
+  border-top: none;
+}
+
+body.minimal #bottombar .breadcrumbs span {
+  background-image: url(../../images/layout/default/shared/minimal/bc_arrow.gif);
+}
+
+body.minimal #bottombar .breadcrumbs span.info {
+  background-image: url(../../images/layout/default/shared/minimal/bc_info.png);
+}
+
+/* @end */
+
+/* @end */
+
+
+
+
+
+
+
+
+
+
+/* @group Layout Structure
+============================================================ */
+
+
+
+/* @group Main
+------------------------------------------------------------ */
+
+#main {
+  background: #F8F8F8 url(../../images/layout/default/shared/main_gradient.png) repeat-x;
+  border-top: 1px solid white;
+}
+
+/* @end */
+
+
+
+/* @group Sidebar
+------------------------------------------------------------ */
+
+#sidebar .box .content,
+#sidebar .box .nav {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, .2);
+  -moz-box-shadow: inset 0 0 2px rgba(0, 0, 0, .2);
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, .2);
+}
+
+#sidebar .box .nav ul li a {
+  background-image: url(../../images/layout/default/shared/sidebar_nav_list-arrow.gif);
+  border-top: 1px solid white;
+  _border-top: none; /* IE6 fix */
+}
+
+#sidebar .box .nav ul li:first-child a { border-top: none; }
+#sidebar .box .nav ul li:last-child a  { border-bottom: none; }
+
+#sidebar .box .nav ul li a:hover {
+  background-color: rgba(204, 204, 204, .4);
+  border-top-color: #eee;
+  *background-color: #ddd; /* IE fix */
+}
+
+/* @end */
+
+
+
+/* @group Bottombar
+------------------------------------------------------------ */
+
+#bottombar { border-top: 1px solid #ddd; }
+
+#bottombar .breadcrumbs a:hover,
+#bottombar .breadcrumbs a.active { color: #333; }
+
+#bottombar .breadcrumbs span {
+  background-image: url(../../images/layout/default/shared/bc_arrow.gif);
+}
+
+#bottombar .breadcrumbs span.info {
+  background-image: url(../../images/layout/default/shared/bc_info.png);
+}
+
+/* @end */
+
+
+
+/* @group Footerbar
+------------------------------------------------------------ */
+
+#footerbar,
+body.footerbar-inline #footerbar .wrapper {
+  background-position: left top;
+  background-repeat: repeat-x;
+}
+
+/* @end */
+
+/* @end */

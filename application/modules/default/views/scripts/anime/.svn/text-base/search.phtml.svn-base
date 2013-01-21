@@ -1,0 +1,17 @@
+<?php
+	echo $this->form;
+	
+	if (isset($this->animeList)){
+?>		
+<ul>
+<?php foreach($this->animeList as $anime) : ?>
+<li><a href="<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$anime['id']))?>"><?php echo $anime['title'];?></a></li>
+<?php endforeach; ?>
+</ul>
+<?php 
+
+	}
+      
+      
+      
+?>

@@ -1,0 +1,95 @@
+<?php
+$this->title = $this->escape("User Control Panel");
+$this->headTitle($this->title);
+if (!isset($this->username)){
+	 echo '<div class="success">You need to <a href="'.$this->url(array('controller'=>'login')).'">login</a> to access this page.</div>';
+} else{
+if (isset($this->message)) {
+    echo '<div class="success">' . implode($this->message) . '</div>';
+}
+
+$score = array('1' => '1 - Unwatchable', '2' => '2 - Awful', '3' => '3 - Bad', 
+'4' => '4 - Mediocre', '5' => '5 - Average', '6' => '6 - Fair', 
+'7' => '7 - Good', '8' => '8 - Great', '9' => '9 - Excellent', 
+'10' => '10 - Masterpiece');
+$status = array('1' => 'Already Watched', '2' => 'Currently Watching', 
+'3' => 'On Hold', '4' => 'Stopped Watching', '5' => 'Do Not Watch');
+?>
+<h1>Hello, <?=$this->escape($this->username);?></h1>
+<p>
+<a href='<?=$this->url(array('controller'=>'user','action'=>'edit'),null, true)?>'>Edit your profile</a>
+<br/>
+<?php 
+	if (isset($this->isAdmin)) {
+		echo '<a href="'.$this->url(array('module'=>'admin', 'controller'=>'anime','action'=>'add'),null,true).'/?lightbox[iframe]=true&amp;lightbox[width]=1000&amp;lightbox[height]=460" class="lightbox">Add new anime</a>';
+	}
+?>	
+<br/>
+
+
+<?php if($this->userlist){ ?>
+<h5>Your Anime List</h5>
+<ul>
+		<?php foreach($this->userlist as $anime) : ?>
+		<li><a
+		href="<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$anime['id']))?>">
+		<img src="<?php echo $this->baseUrl()."/public/pictures/".$anime['picture'];?>" alt="<?php echo $this->escape($anime['title']);?>" 
+		width="5%" height="5%"><?php echo $anime['title'];?></a>
+		<?php echo 'Score = ' . $score[$anime['score']] . ' Status = ' . $status[$anime['status']];?></li>
+		
+		<?php endforeach; ?>
+		</ul>
+		<a href='<?=$this->url(array('controller'=>'user','action'=>'editlist'),null, true)?>'>Edit your anime list</a>
+<?php 
+
+		}     ?>
+
+<p>
+<?php if($this->recs)
+{
+?>
+	<h5>Your Recommednations</h5>
+	<ul>
+	<?php 
+	foreach($this->recs as $rec)
+	{
+		$anime = new Application_Model_DbTable_Anime();
+		$sugRow = $anime->getAnime($rec['anime_id2']);
+		$sugTitle = $sugRow['title'];
+		
+		$forRow = $anime->getAnime($rec['anime_id1']);
+		$forTitle = $forRow['title'];
+		
+		//echo $rec['anime_id1'];
+		//echo $rec['anime_id2'];
+		?>
+		<li>
+		<?php echo "You recommended "?>
+		<a href="<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$rec['anime_id2']))?>"><?php echo $sugTitle?></a>
+		<?php echo "for "?>
+		<a href="<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$rec['anime_id1']))?>"><?php echo $forTitle?></a>
+		</li>
+	<?php
+	}?>
+	</ul>
+	
+	<a href='<?=$this->url(array('controller'=>'user','action'=>'editrecs'),null, true)?>'>Edit your recommendations</a>
+<?php }?>
+
+<p>		
+<?php if($this->comment){ ?>
+<h5>Animes you have commented on </h5>
+<ul>
+		<?php foreach($this->comment as $anime) : ?>
+		<li><a href="<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$anime['id']))?>">
+		<img src="<?php echo $this->baseUrl()."/public/pictures/".$anime['picture'];?>" alt="<?php echo $this->escape($anime['title']);?>" width="5%" height="5%">
+		<?php echo $anime['title'];?>  </a></li>
+		
+		<?php endforeach; ?>
+		</ul>
+<?php 
+	}  ?>
+	
+<p><a href='<?=$this->escape($this->urllogout);?>'>Logout</a>
+
+<?php }?>

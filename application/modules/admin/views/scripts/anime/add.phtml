@@ -1,0 +1,12 @@
+<h4>Add New Anime</h4>
+<?php
+if (! isset($this->username)) {
+    echo '<div class="notice">You need to <a href="' .
+     $this->url(array('controller' => 'login'),null,true) .
+     '">login</a> to access this page.</div>';
+} else if (! isset($this->isAdmin)) {
+    echo '<div class="error">Permission denied.</div>';
+} else {
+    echo $this->form;
+}
+			

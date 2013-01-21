@@ -1,0 +1,14 @@
+<?php
+$this->title = $this->escape("Edit Profile");
+$this->headTitle($this->title);
+if (!isset($this->username)){
+	 echo '<div class="success">You need to <a href="'.$this->url(array('controller'=>'login')).'">login</a> to access this page.</div>';
+} else{
+if (isset($this->message)) {
+    echo '<div class="success">' . implode($this->message) . '</div>';
+}
+	echo $this->form;
+	
+}
+?>
+<a href='<?=$this->url(array('controller'=>'user'),null, true)?>'>Return to your user page.</a>

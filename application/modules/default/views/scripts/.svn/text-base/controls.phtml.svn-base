@@ -1,0 +1,67 @@
+<div class="paginator">
+		<?php if ($this->pageCount): ?>
+
+      <!-- First page link -->
+
+      <?php if (isset($this->previous)): ?>
+
+        <a href="<?php echo $this->url(array('page' => $this->first)); ?>" class=first>&laquo;&laquo; First</a>
+        <?php else: ?>
+        <span class="first active">&laquo;&laquo; First</span>
+      <?php endif; ?>
+      
+      <!-- Previous page link -->
+
+      <?php if (isset($this->previous)): ?>
+
+        <a href="<?php echo $this->url(array('page' => $this->previous)); ?>">
+
+          &laquo; Previous
+
+        </a> 
+
+      <?php else: ?>
+
+        <span class="active">&laquo; Previous</span>
+
+      <?php endif; ?>
+
+
+      <!-- Next page link -->
+
+      <?php if (isset($this->next)): ?>
+
+        <a href="<?php echo $this->url(array('page' => $this->next)); ?>">
+
+          Next &raquo;
+
+        </a>
+
+      <?php else: ?>
+
+        <span class="active">Next &raquo;</span>
+
+      <?php endif; ?>
+
+       
+
+      <!-- Last page link -->
+
+      <?php if (isset($this->next)): ?>
+
+        <a href="<?php echo $this->url(array('page' => $this->last)); ?>" class ="last">
+
+          Last &raquo;&raquo;
+
+        </a>
+
+      <?php else: ?>
+
+        <span class="last active">Last &raquo;&raquo;</span>
+
+      <?php endif; ?>       
+
+
+      <?php endif; ?>
+	</div>
+	<!-- END .paginator -->

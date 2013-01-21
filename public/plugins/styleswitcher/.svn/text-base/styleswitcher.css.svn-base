@@ -1,0 +1,285 @@
+/* Main */
+
+#styleswitcher,
+.show-styleswitcher-button {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+  opacity: .85;
+  position: absolute;
+  right: 10px;
+  top: 45px;
+  z-index: 101;
+}
+
+#styleswitcher {
+  padding: 5px 0 10px 0;
+  right: 10px;
+  *width: 230px;
+}
+
+#styleswitcher .wrapper { 
+  padding: 0 15px;
+  width: 200px;
+}
+
+#styleswitcher .close-button,
+.show-styleswitcher-button {
+  background-image: url(images/styleswitcher_button.gif);
+  background-repeat: no-repeat;
+}
+
+.show-styleswitcher-button {
+  background-position: 9px 9px;
+  cursor: pointer;
+  display: none;
+  height: 31px;
+  width: 31px;
+}
+
+#styleswitcher .close-button {
+  background-position: -22px 6px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  cursor: pointer;
+  display: block;
+  height: 25px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25px;
+}
+
+
+/* Generic */
+
+#styleswitcher p { 
+  margin-bottom: 3px;
+}
+
+
+/* Form */
+
+#styleswitcher form {
+  margin-bottom: 0;
+}
+
+#styleswitcher form select,
+#styleswitcher form input[type=submit] {
+  width: 100%;
+}
+
+#styleswitcher form #ss_submit {
+  border: 1px solid;
+  text-shadow: none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  font-size: 85%;
+  font-weight: bold;
+}
+
+#styleswitcher form #ss_submit:hover {
+  border: 1px solid;
+}
+
+
+/* Divider / Spacer */
+
+#styleswitcher .hr,
+#styleswitcher .spacer {
+  padding-bottom: 5px;
+}
+
+#styleswitcher .hr {
+  border-top: 1px solid;
+  margin-top: 7px;
+}
+
+
+/* Toggler */
+
+#styleswitcher .toggler {
+  border: 1px solid;
+  border-left: none;
+  border-right: none;
+}
+
+#styleswitcher .toggler,
+#styleswitcher .toggler.active,
+#styleswitcher .toggle-content {
+  background-image: none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  padding: 0;
+  text-shadow: none;
+}
+
+#styleswitcher .toggler strong {
+  background-position: 20px -14px;
+  padding-left: 38px;
+  text-decoration: underline;
+}
+
+#styleswitcher .toggler.active strong {
+  background-position: -8px 14px;
+}
+
+
+/* Reset Link */
+
+#styleswitcher .reset-link {
+  font-size: 80%;
+}
+
+
+/* Boxed */
+
+body.boxed #styleswitcher,
+body.boxed .show-styleswitcher-button {
+  top: 68px;
+}
+
+
+/* Default */
+
+#styleswitcher.default,
+.show-styleswitcher-button.default {
+  *border: 1px solid #ccc;  /* IE fix */
+}
+
+#styleswitcher.default {
+  background-color: #f8f8f8;
+}
+
+#styleswitcher.default .close-button,
+.show-styleswitcher-button.default {
+  background-color: #ddd;
+}
+
+#styleswitcher.default .close-button {
+  border-left-color: #ccc;
+  border-bottom-color: #ccc;
+}
+
+#styleswitcher.default .hr {
+  background-image: none;
+  border-top-color: #ccc;
+}
+
+#styleswitcher.default .toggler {
+  background: #fff;
+  border-color: #ccc;
+}
+
+#styleswitcher.default .toggler strong {
+  background-image: url(images/default/toggler_icons.gif);
+}
+
+#styleswitcher.default .toggler strong:hover {
+  color: black;
+}
+
+#styleswitcher.default form #ss_submit {
+  background: #ccc;
+  border-color: #bbb;
+  color: #333;
+}
+
+#styleswitcher.default form #ss_submit:hover {
+  background: #bbb;
+  border-color: #aaa;
+  color: black;
+}
+
+#styleswitcher.default .reset-link {
+  color: #666;
+}
+
+#styleswitcher.default .reset-link:hover {
+  color: black;
+}
+
+
+/* Dark */
+
+#styleswitcher.dark,
+.show-styleswitcher-button.dark {
+  *border: 1px solid #777;  /* IE fix */
+}
+
+#styleswitcher.dark {
+  background-color: #444;
+  color: #ddd;
+}
+
+#styleswitcher.dark .close-button,
+.show-styleswitcher-button.dark {
+  background-color: #666;
+}
+
+#styleswitcher.dark .close-button {
+  border-left-color: #444;
+  border-bottom-color: #444;
+}
+
+#styleswitcher.dark .hr {
+  background-image: none;
+  border-top-color: #777;
+}
+
+#styleswitcher.dark .toggler {
+  background: #555;
+  border-color: #777;
+}
+
+#styleswitcher.dark .toggler strong {
+  background-image: url(images/dark/toggler_icons.gif);
+}
+
+#styleswitcher.dark .toggler strong:hover {
+  color: white;
+}
+
+#styleswitcher.dark form #ss_submit {
+  background: #333;
+  border-color: #333;
+  color: #ddd;
+}
+
+#styleswitcher.dark form #ss_submit:hover {
+  background: #222;
+  border-color: #222;
+  color: white;
+}
+
+#styleswitcher.dark .reset-link {
+  color: #ddd;
+}
+
+#styleswitcher.dark .reset-link:hover {
+  color: white;
+}
+
+
+
+
+input[disabled='disabled'] {
+  border: 1px solid red;
+}
+
+
+
+
+
+

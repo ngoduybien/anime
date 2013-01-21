@@ -1,0 +1,20 @@
+<h3>Your Anime List</h3>
+<?php
+$this->title = $this->escape("Your Anime List");
+$this->headTitle($this->title);
+if (!isset($this->username)){
+	 echo '<div class="success">You need to <a href="'.$this->url(array('controller'=>'login', 'action' => '')).'">login</a> to access this page.</div>';
+} else{
+if ($this->userlist) {
+        echo $this->listForm;
+        ?>
+
+<?php
+} else{
+	echo '<div class="notice">You have no anime in your list.</div>';	
+}
+?>
+<a href='<?=$this->url(array('controller'=>'user'),null, true)?>'>Return to your user page.</a>
+<?php 
+}
+?>

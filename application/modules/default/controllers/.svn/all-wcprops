@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/78/trunk/Anime/application/modules/default/controllers
+END
+IndexController.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/61/trunk/Anime/application/modules/default/controllers/IndexController.php
+END
+LoginController.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/62/trunk/Anime/application/modules/default/controllers/LoginController.php
+END
+ErrorController.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/6/trunk/Anime/application/modules/default/controllers/ErrorController.php
+END
+AnimeController.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/74/trunk/Anime/application/modules/default/controllers/AnimeController.php
+END
+RegistrationController.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/60/trunk/Anime/application/modules/default/controllers/RegistrationController.php
+END
+UserController.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/78/trunk/Anime/application/modules/default/controllers/UserController.php
+END
+StatsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/65/trunk/Anime/application/modules/default/controllers/StatsController.php
+END

@@ -1,0 +1,214 @@
+<?php         
+$this->title = $this->escape($this->anime->title);
+$this->headTitle($this->title);
+
+$type_ar = array ('Other', 'TV', 'OVA', 'Movie', 'Special', 'ONA', 'Music' );
+$type_id = array (0, 1, 2, 3, 4, 5, 6 );
+$this->anime->type = str_replace ( $type_id, $type_ar, $this->anime->type );
+
+$status_ar = array ('Finished Airing', 'Currently Airing', 'Not yet aired' );
+$status_id = array (1, 2, 3 );
+$this->anime->status = str_replace ( $status_id, $status_ar, $this->anime->status );
+
+$rate_ar = array ('None', 'G - All Ages', 'PG - Children', 'PG-13 - Teens 13 or older', 'R - 17+ (violence & profanity)', 'R+ - Mild Nudity', 'Rx - Hentai' );
+$rate_id = array (0, 1, 2, 3, 4, 5, 6 );
+$this->anime->rating = str_replace ( $rate_id, $rate_ar, $this->anime->rating );
+
+//print_r($this->genres);
+if (isset($this->message)) {
+    echo '<div class="success">' . implode($this->message) . '</div>';
+	}
+?>
+	<h3><?php echo $this->anime->title;?></h3>
+	<?php 
+	if (isset($this->isAdmin)) {
+		echo '<a href="'.$this->url(array('module'=>'admin', 'controller'=>'anime','action'=>'edit','id'=>$this->animeID),null,true).'/?lightbox[iframe]=true&amp;lightbox[width]=1000&amp;lightbox[height]=460" class="lightbox">Edit</a> | ';
+		echo '<a href="'.$this->url(array('module'=>'admin', 'controller'=>'anime','action'=>'delete','id'=>$this->animeID),null,true).'/?lightbox[iframe]=true&amp;lightbox[width]=1000&amp;lightbox[height]=460" class="lightbox">Delete</a>';
+	}
+	?>	
+	
+	<span class="frame float-right">
+	<img src="<?php echo $this->baseUrl()."/public/pictures/".$this->anime->picture;?>" alt="<?php echo $this->escape($this->anime->title);?>">
+	</span>
+	<p>
+		<h5>Summary</h5>
+		<?php echo $this->anime->summary;?>
+	
+	
+	<p>
+		<?php if ( $this->anime->jap_title!=null &&  $this->anime->eng_title!=null && $this->anime->other_titles!=null){?>
+		<h5>Alternative Titles</h5>
+		<?php if ( $this->anime->jap_title!=null){?>
+		<b>Japanese: </b><?php echo $this->anime->jap_title;?><br/>
+		<?php }?>
+		<?php if ( $this->anime->eng_title!=null){?>
+		<b>English: </b><?php echo $this->anime->eng_title;?><br/>
+		<?php }?>
+		<?php if ( $this->anime->other_titles!=null){?>
+		<b>Synonyms: </b><?php echo $this->anime->other_titles;?>
+		<?php }?>
+		<?php }?>
+
+	
+	
+	
+		<h5>Information</h5>
+		<b>Type: </b><?php echo $this->anime->type;?><br/>
+		<b>Status: </b><?php echo $this->anime->status;?><br/>
+		<b>Episodes: </b><?php echo $this->anime->episodes;?><br/>
+		<b>Aired: </b><?php echo $this->anime->aired_date;?><br/>
+		<?php if (count($this->genres)>0){
+		?>		
+		<b>Genres: </b><?php 
+					   	  for ($i=0;$i<count($this->genres)-1;$i++){
+					   	  	echo $this->escape($this->genres[$i]['genre_name']).", ";
+					   	  }
+					   	  echo $this->genres[count($this->genres)-1]['genre_name'];
+					   ?><br/>
+		<?php }?>
+		<?php if (count($this->producers)>0){
+		?>	
+		<b>Producers: </b><?php 
+					     	  for ($i=0;$i<count($this->producers)-1;$i++){
+					   	    	echo $this->escape($this->producers[$i]['prod_name']).", ";
+					   	      }
+					   	      echo $this->producers[count($this->producers)-1]['prod_name'];
+					     ?><br/>
+		<?php }?>
+		<b>Rating: </b><?php echo $this->anime->rating;?>
+	<br/><br/>
+	
+	<?php if (isset($this->animeRelation)){
+				echo '<div class="toggler"><strong><h5>Related Anime</h5></strong></div>';
+    			echo '<div class="toggle-content">';       				
+				//echo "<h5>Related Anime</h5>";	
+				echo "<ul>";			
+				foreach ($this->animeRelation as $animeR){
+					if (!isset($type[$animeR['description']])){
+						echo "<b>{$animeR['description']}</b>";
+						$type[$animeR['description']] = true;
+					}
+					echo "<li><a href=".$this->url(array('controller'=>'anime','action'=>'index','id'=>$animeR['id']),null,true).">".$animeR['title']."</a></li>";
+				}
+				echo "</ul>";
+				echo '</div>';
+		}?>
+	
+	<?php
+		if (isset($this->sysRecommends)){
+		?>		
+		<div class="toggler"><strong><h5>System Recommendations</h5></strong></div>
+    	<div class="toggle-content">		
+		<ul>
+		<?php foreach($this->sysRecommends as $anime) : ?>
+		<li><a href="<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$anime->id),null,true)?>">
+		<img src="<?php echo $this->baseUrl()."/public/pictures/".$anime->picture;?>" alt="<?php echo $this->escape($anime->title);?>" width="5%" height="5%">
+		<?php echo $anime->title;?></a>
+		<?php endforeach; ?>
+		</ul>
+		</div>
+		<?php 
+
+		}     ?>
+	
+
+		
+		<?php
+		if (count($this->recommends)>0){
+		?>		
+		<div class="toggler"><strong><h5>User Recommendations</h5></strong></div>
+    	<div class="toggle-content">	
+		<a href="<?php echo $this->url(array('controller'=>'anime','action'=>'recommend','id'=>$this->animeID));?>"><h5>User Recommendations</h5></a>
+		<ul>
+		<?php foreach($this->recommends as $recommend) : ?>
+		<li><a href="<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$recommend['anime_id2']))?>"><?php echo $recommend['title'];?></a><?php echo  ' recommended by ' . $recommend['username'];?></li>
+		<?php endforeach; ?>
+		</ul>
+		</div>
+		<?php 
+
+		}     ?>
+    <?php
+    //echo $this->rec_form;
+    ?>
+    
+
+    	<?php 
+    	if(isset($this->addRecForm))
+    	{?>
+    	<div class="toggler"><strong><h5>Add Recomendation</h5></strong></div>
+    	<div class="toggle-content">
+    		<h5>Add Recomendation</h5>
+    	<?php	
+    		echo $this->addRecForm;
+    		echo "</div>";
+    	}
+    	?>
+
+    
+   
+		<?php
+		if(isset($this->username)){
+		if(isset($this->listForm))
+		{ ?>
+			<div class="toggler"><strong><h5>Add to your Anime List?</h5></strong></div>
+    		<div class="toggle-content">
+			<h5>Add to your Anime List?</h5>
+		<?php	
+			echo $this->listForm;
+			echo "</div>";
+		} else{
+			echo '<div class="toggler"><strong><h5>This anime is in your Anime List</h5></strong></div>';
+    		echo '<div class="toggle-content">'; 
+			echo '<div class="hr"></div> <h5>This anime is in your Anime List</h5>';
+			$score = array('1' => '1 - Unwatchable', '2' => '2 - Awful', '3' => '3 - Bad', 
+						   '4' => '4 - Mediocre', '5' => '5 - Average', '6' => '6 - Fair', 
+							'7' => '7 - Good', '8' => '8 - Great', '9' => '9 - Excellent', 
+							'10' => '10 - Masterpiece');
+			$status = array('1' => 'Already Watched', '2' => 'Currently Watching', 
+							'3' => 'On Hold', '4' => 'Stopped Watching', '5' => 'Do Not Watch');
+			echo '<ul><li>Anime Status = ' . $status[$this->animeListInfo->status].'</li><li>Your Score = ' . $score[$this->animeListInfo->score].'</li><li>Click <a href="'.$this->url(array('controller'=>'user', 'action'=>'editlist'),null,true).'">here</a> your list.</li></ul>';
+			echo "</div>";
+		}
+		}
+		?>
+		
+		<?php
+		if (isset($this->comments)){
+			if (count($this->comments)>0){
+		?>		
+		<div class="toggler"><strong><h5>Comments</h5></strong></div>
+    	<div class="toggle-content">
+		<h5>Comments</h5>
+		<div id="comments">
+		<ol class="comment-list">
+		<?php foreach($this->comments as $comment) : ?>
+		<li class="comment">
+            <div class="content">
+              <cite class="author"><?php echo $comment['username'];?></cite>
+              <a class="meta-data"><?php echo $comment['date'];?></a>
+              <div class="text">
+                <p>
+                  <?php echo nl2br($comment['content']);?>
+                </p>
+              </div>
+            </div>
+		</li>
+		<?php //echo nl2br($comment['content']) . nl2br("\n"). 'by ' . $comment['username'] . ' on ' .  $comment['date'];?>
+		<?php endforeach; ?>
+		</ol>
+		</div>
+		</div>
+		<?php 
+
+		} }    ?>
+		<div class="toggler"><strong><h5>Enter Comment</h5></strong></div>
+    	<div class="toggle-content">
+   <?php
+    echo $this->form;
+    ?>
+    </div>
+  
+
+    
+

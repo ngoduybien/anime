@@ -1,0 +1,237 @@
+/* @group Imports
+============================================================ */
+
+@import url("shared.css");
+
+/* @end */
+
+
+
+
+
+
+
+
+
+
+/* @group Generic
+============================================================ */
+
+body,
+body #body-wrapper { background-color: #011a2e; }
+
+#header ul.nav li a,
+#footer, #footer .button { color: #acb6bf; }
+
+#header ul.nav li a:hover,
+#header ul.nav li a.active,
+#header ul.nav li ul li a,
+#topbar,
+#footer a:hover,
+#footer h2, #footer h3, #footer h4, #footer h5,
+#footerbar a:hover {
+  color: white;
+}
+
+/* @end */
+
+
+
+
+
+
+
+
+
+
+/* @group Content Elements
+============================================================ */
+
+
+
+/* @group Links
+------------------------------------------------------------ */
+
+a       { color: #023259; }
+a:hover { color: #666; }
+
+/* @end */
+
+/* @end */
+
+
+
+
+
+
+
+
+
+
+/* @group Custom Elements
+============================================================ */
+
+
+
+/* @group Preview Showcase
+------------------------------------------------------------ */
+
+#preview #showcase .rounded-corners-top {
+  background-image: url(../../images/layout/default/blue/preview_round-corners_top.png);
+}
+
+/* @end */
+
+/* @end */
+
+
+
+
+
+
+
+
+
+
+/* @group Layout Options
+============================================================ */
+
+
+
+/* @group Boxed
+------------------------------------------------------------ */
+
+body.boxed { background-color: #5A5F6C !important; }
+
+body.boxed #body-wrapper { 
+  box-shadow: 0 0 15px #222;
+  -moz-box-shadow: 0 0 15px #222;
+  -webkit-box-shadow: 0 0 15px #222;
+  *border: 1px solid #999; /* IE fix */
+}
+
+/* @end */
+
+
+
+/* @group Preview
+------------------------------------------------------------ */
+
+body.preview #main { 
+  background-image: url(../../images/layout/default/blue/head.png); 
+}
+
+/* @end */
+
+/* @end */
+
+
+
+
+
+
+
+
+
+
+/* @group Layout Structure
+============================================================ */
+
+
+
+/* @group Header
+------------------------------------------------------------ */
+
+#header {
+  background: url(../../images/layout/default/blue/head.png) repeat-x;
+}
+
+#header #logo h1 a {
+  background-image: url(../../images/layout/default/blue/logo.png);
+}
+
+
+/* Navigation */
+
+#header ul.nav li {
+  background-image: url(../../images/layout/default/blue/nav_bg.png);
+}
+
+
+/* Dropdown Menu */
+
+#header ul.nav li ul {
+  background-image: url(../../images/layout/default/blue/nav_dropdown_arrow.gif);
+}
+
+#header ul.nav li ul li a {
+  background-color: #58595e;
+  border-color: #939499;
+}
+
+#header ul.nav li ul li a:hover {
+  background: #64656b;
+}
+
+#header ul.nav li ul li:last-child a,
+#header ul.nav li ul li ul li:last-child a {
+  border-bottom-color: #939499;
+}
+
+/* @end */
+
+
+
+/* @group Topbar
+------------------------------------------------------------ */
+
+#topbar {
+  background: #7e858c url(../../images/layout/default/blue/topbar_bg.png) repeat-x;
+}
+
+#topbar strong { text-shadow: 1px 1px 1px black; }
+
+/* @end */
+
+
+
+/* @group Footer
+------------------------------------------------------------ */
+
+#footer {
+	background-image: url(../../images/layout/default/blue/footer_bg.png);
+}
+
+#footer .hr,
+#footer .box h4,
+#footer .nav ul li a {
+  background-image: url(../../images/layout/default/blue/footer_line.gif);
+}
+
+#footer a { color: #959ea6; }
+
+#footer .nav ul li {
+  background-image: url(../../images/layout/default/blue/footer_list-arrow.gif);
+}
+
+#footer .button       { background: #1b344d; }
+#footer .button:hover { background: #244666; }
+
+/* @end */
+
+
+
+/* @group Footerbar
+------------------------------------------------------------ */
+
+#footerbar,
+#footerbar a { color: #959ea6; }
+
+#footerbar,
+body.footerbar-inline #footerbar .wrapper {
+  background-image: url(../../images/layout/default/blue/footer_line.gif);
+}
+
+/* @end */
+
+/* @end */

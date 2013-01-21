@@ -1,0 +1,52 @@
+<?php         
+$this->title = "Home";
+$this->headTitle($this->title);
+
+if(isset($this->username)){
+	echo 'Welcome ' . $this->username;
+?>
+
+	<a href='<?=$this->escape($this->user);?>'>view your current anime list.</a>
+	<br></br>
+	<a href='<?=$this->escape($this->list);?>'><b>View the anime listing.</b></a>
+	<br></br>
+	<a href='<?=$this->escape($this->search);?>'><b>Search for a specific anime.</b></a>
+	<br></br>
+<?php }?>
+
+<h5>Top Ten Viewed Animes</h5>
+<ul>
+<?php foreach($this->topTen as $anime) : ?>
+<li><a href="<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$anime->id),null,true)?>">
+<img src="<?php echo $this->baseUrl()."/public/pictures/".$anime->picture;?>" alt="<?php echo $this->escape($anime->title);?>" width="5%" height="5%">
+<?php echo $anime->title;?></a></li>
+<?php endforeach; ?>
+</ul>
+
+<h5>Recently Commented Animes</h5>
+<ul>
+		<?php foreach($this->comment as $anime) : ?>
+		<li><a href="<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$anime['id']))?>">
+		<img src="<?php echo $this->baseUrl()."/public/pictures/".$anime['picture'];?>" alt="<?php echo $this->escape($anime['title']);?>" width="5%" height="5%">
+		<?php echo $anime['title'];?>  </a>
+		<?php echo ' commented on by ' . $anime['username']?></li>
+		
+		<?php endforeach; ?>
+</ul>
+
+<h5>Recently Watched Animes</h5>
+<ul>
+		<?php foreach($this->recentWatch as $anime) : ?>
+		<li><a href="<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$anime['id']))?>">
+		<img src="<?php echo $this->baseUrl()."/public/pictures/".$anime['picture'];?>" alt="<?php echo $this->escape($anime['title']);?>" width="5%" height="5%">
+		<?php echo $anime['title'];?>  </a></li>
+		
+		<?php endforeach; ?>
+</ul>
+
+<h5>New Users</h5>
+<ul>
+<?php foreach($this->newusers as $user) : ?>
+<li><?php echo $user->username . ' from ' . $user->location?></li>
+<?php endforeach; ?>
+</ul>

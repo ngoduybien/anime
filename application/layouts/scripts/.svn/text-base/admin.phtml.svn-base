@@ -1,0 +1,127 @@
+<?php 
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('Anime.vn');
+
+echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head>
+    <?php echo $this->headMeta(); ?>
+	<?php echo $this->headTitle(); ?>
+	
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+    
+    <!-- Stylesheets: Screen, Projection -->
+    <link href="<?php echo $this->baseUrl();?>/public/stylesheets/layout.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    
+    <link href='<?php echo $this->baseUrl();?>/public/stylesheets/default/blue.css' media='screen, projection' rel='stylesheet' type='text/css' />    
+    <!--[if IE 6]>
+      <script src="<?php echo $this->baseUrl();?>/public/javascripts/ie.pngfix.js" type="text/javascript"></script>
+      <script>DD_belatedPNG.fix('li, #logo a, #main, #preview, .post-data span, blockquote, .lightbox-image, .dropcap-circle, .breadcrumbs span.info');</script>
+      <style>li, #footer .nav li a, #sidebar .nav li a {zoom:1}</style>
+    <![endif]-->
+    <!--[if lt IE 9]>
+      <style>#showcase .rounded-corners-top, #showcase .rounded-corners-bottom {display: none}</style>
+    <![endif]-->
+
+    <!-- jQuery -->
+    <script src="<?php echo $this->baseUrl();?>/public/javascripts/jquery.min.js" type="text/javascript"></script>
+    
+    <!-- Cufon -->
+
+    <script src="<?php echo $this->baseUrl();?>/public/javascripts/cufon.js" type="text/javascript"></script>
+    <script src="<?php echo $this->baseUrl();?>/public/javascripts/cufon.fonts.js" type="text/javascript"></script>
+    
+    <!-- Nivo Slider -->
+    <link href="<?php echo $this->baseUrl();?>/public/plugins/nivoslider/nivo-slider.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $this->baseUrl();?>/public/plugins/nivoslider/style-pack/custom-nivo-slider.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <script src="<?php echo $this->baseUrl();?>/public/plugins/nivoslider/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+    
+    <!-- Fancybox -->
+
+    <!--
+    <link href="<?php echo $this->baseUrl();?>/public/plugins/fancybox/jquery.fancybox-1.3.1.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <script src="<?php echo $this->baseUrl();?>/public/plugins/fancybox/jquery.fancybox-1.3.1.pack.js" type="text/javascript"></script>
+    -->
+    
+    <!-- prettyPhoto -->
+    <link href="<?php echo $this->baseUrl();?>/public/plugins/prettyPhoto/css/prettyPhoto.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <script src="<?php echo $this->baseUrl();?>/public/plugins/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript"></script>
+        
+    <!-- Superfish -->
+    <script src="<?php echo $this->baseUrl();?>/public/javascripts/jquery.superfish.js" type="text/javascript"></script>
+    
+    <!-- Forms -->
+    <script src="<?php echo $this->baseUrl();?>/public/javascripts/jquery.validate.pack.js" type="text/javascript"></script>
+
+    <script src="<?php echo $this->baseUrl();?>/public/javascripts/jquery.form.js" type="text/javascript"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="<?php echo $this->baseUrl();?>/public/javascripts/custom.js" type="text/javascript"></script>
+   
+</head>
+
+
+
+
+
+<body class="fullwidth">
+
+    <div id="body-wrapper">
+    
+
+  
+   <div id="main">
+     <div class="wrapper">	
+		<div id="content">
+  		   <div class="entry blogentry">  	
+  		   	  <div class="content-frame">		
+   			 	<?php echo $this->layout()->content; ?>
+  			  </div>
+          </div>
+           <!-- END .entry -->
+  		</div>
+		<!-- END #content -->
+
+        </div>
+        <!-- END .wrapper -->
+      </div>
+      <!-- END #main -->          
+
+    </div>
+    <!-- END #body-wrapper -->
+<?php 
+// get the default db adapter
+$db = Zend_Db_Table::getDefaultAdapter();
+$profiler = $db->getProfiler();
+if($profiler->getEnabled() && $profiler->getTotalNumQueries() > 0) { ?>
+<div style='text-align:center'>
+<h2>Database Profiling Report</h2>
+    <p>Total queries executed: <?php echo $profiler->getTotalNumQueries()?></p>
+    <p>Total elapsed time: <?php echo $profiler->getTotalElapsedSecs()?></p>
+</div>
+<table class='spreadsheet' cellpadding='0' cellspacing='0' style='margin:10px auto'>
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Query</th>
+			<th>Time</th>
+		</tr>
+	</thead>
+	<tbody>
+<?php foreach ($profiler->getQueryProfiles() as $queryNumber => $query) { ?>
+	<tr>
+		<td>(<?php echo $queryNumber + 1?>)</td>
+		<td><?php echo $query->getQuery();?></td>
+		<td><?php echo $query->getElapsedSecs();?></td>
+	</tr>
+<?php }?>
+</tbody>
+</table>
+<?php }?>
+
+ </body>
+
+</html>

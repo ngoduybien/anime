@@ -1,0 +1,48 @@
+<?php         
+$this->title = "Anime List";
+$this->headTitle($this->title);
+?>
+
+
+    <h2>Anime List</h2>
+    
+<div class="paginator">
+       
+<!--    Start Label-->
+ <?php 
+							$label = "ABCDEFGHIJKLMNOPQRSTUVWZYZ_";
+							if ($this->label == '0'){
+									echo '<span class="active first">#</span>';
+								}else{
+									echo '<a href="'.$this->url(array('controller'=>'anime','action'=>'list','label'=>'0'),null,true).'" class="first">#</a> ';
+								}
+							for ($i=0;$i<strlen($label);$i++){
+								if ($this->label == $label[$i]){
+									echo '<span class="active">'.$label[$i].'</span>';
+								}else{
+									echo '<a href="'.$this->url(array('controller'=>'anime','action'=>'list','label'=>$label[$i]),null,true).'">'.$label[$i].'</a> ';
+								}
+							}
+							if ($this->label == null){
+									echo '<span class="active last">All</span>';
+								}else{
+									echo '<a href="'.$this->url(array('controller'=>'anime','action'=>'list'),null,true).'" class="last">All</a> ';
+								}
+						?>
+
+<!--End Label-->
+
+	</div>
+	<!-- END .paginator -->
+  <?php echo $this->animeList; ?>
+
+
+<ul>
+<?php foreach($this->animeList as $anime) : ?>
+<li><a href="<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$anime->id),null,true)?>">
+<img src="<?php echo $this->baseUrl()."/public/pictures/".$anime->picture;?>" alt="<?php echo $this->escape($anime->title);?>" width="5%" height="5%">
+<?php echo $anime->title;?></a>
+</li>
+<?php endforeach; ?>
+</ul>
+

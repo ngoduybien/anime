@@ -1,0 +1,65 @@
+
+<ol>
+	<?php 
+	if($this->id > 0)
+	{
+		$animeRow = $this->anime->getAnime($this->id);
+		$name = $animeRow['title'];    
+		$this->title = "Recommended Anime for $name";
+		$this->headTitle($this->title);
+		
+		
+		foreach($this->recommends as $rec)
+		{
+			$nextAnime = $this->anime->getAnime($rec['anime_id2']);		
+		?>
+			<li><a href = "<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$rec['anime_id2']))?>"><?php echo $nextAnime['title'];?></a>
+				
+				<?php
+				//Grab user names
+				$user = $rec['username'];
+				echo "by $user";
+				?>
+				
+				<ul><?php 
+				
+				$desc = $rec['description'];
+				$desc = nl2br($desc);
+				//echo $rec['description'];
+				echo "$desc";
+				?></ul>
+			</li><?php
+		}
+	}
+	else
+	{
+		$this->title = "Recently Recommended Anime";
+		foreach($this->lastTen as $recent)
+		{
+			$nextAnime = $this->anime->getAnime($recent['anime_id2']);	
+			$nextFor = 	$this->anime->getAnime($recent['anime_id1']);
+			
+			
+			//Grab user names
+			$db = Zend_Db_Table_Abstract::getDefaultAdapter();
+			$stmt = $db->query('SELECT * FROM user WHERE user_id = ?', $recent['user_id']);
+			
+			$userRow = $stmt->fetch();
+			$user = $userRow['username'];
+			//echo $user;
+		?>
+			<li><a href = "<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$recent['anime_id2']))?>"><?php echo $nextAnime['title'];?></a>
+				<?php echo 'for'?>
+				<a href = "<?php echo $this->url(array('controller'=>'anime','action'=>'index','id'=>$recent['anime_id1']))?>"><?php echo $nextFor['title'];?></a>
+				<?php echo "by $user"?>
+				<ul><?php 
+				$desc = $recent['description'];
+				$desc = nl2br($desc);
+				//echo $rec['description'];
+				echo "$desc";
+				?></ul>
+			</li><?php
+		}
+	}
+	?>
+</ol>
